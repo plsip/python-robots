@@ -1,4 +1,4 @@
-package wrapper;
+package main;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -18,8 +18,7 @@ public class JarClassLoader extends URLClassLoader {
     }
 
     public String getMainClassName() throws IOException {
-        URL u = new URL("jar", "", url + "!/");
-        JarURLConnection uc = (JarURLConnection)u.openConnection();
+        JarURLConnection uc = (JarURLConnection)url.openConnection();
         Attributes attr = uc.getMainAttributes();
         return attr != null
                 ? attr.getValue(Attributes.Name.MAIN_CLASS)
@@ -29,20 +28,17 @@ public class JarClassLoader extends URLClassLoader {
     public void invokeClass(String name, String[] args)
             throws ClassNotFoundException,
             NoSuchMethodException,
-            InvocationTargetException
+            InvocationTargetException,
+            IllegalAccessException
     {
         Class c = loadClass(name);
-        Method m = c.getMethod("main", new Class[] { args.getClass() });
+        Method m = c.getMethod("main", args.getClass());
         m.setAccessible(true);
         int mods = m.getModifiers();
         if (m.getReturnType() != void.class || !Modifier.isStatic(mods) ||
                 !Modifier.isPublic(mods)) {
             throw new NoSuchMethodException("main");
         }
-        try {
-            m.invoke(null, new Object[] { args });
-        } catch (IllegalAccessException e) {
-            // This should not happen, as we have disabled access checks
-        }
+        m.invoke(null, new Object[] { args });
     }
 }
