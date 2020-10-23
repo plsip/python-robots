@@ -1,12 +1,11 @@
 package pl.acme;
 
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoistTest {
     @Test
@@ -26,7 +25,7 @@ public class TodoistTest {
         String title = browser.getTitle();
         System.out.println(title);
 
-        assertTrue((title.contentEquals("Inbox: Todoist")));
+        Assert.assertTrue(title.contentEquals("Inbox: Todoist"));
 
         System.setProperty("output", "{\"title\":\"Inbox: Todoist\"}");
 
