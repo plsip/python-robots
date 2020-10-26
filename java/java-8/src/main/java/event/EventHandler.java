@@ -11,8 +11,8 @@ public class EventHandler {
         System.setProperty("output", String.format("{\"secrets\": %s}", secrets));
 
         // List all system properties
-        Properties properties = System.getProperties('inputParamters');
-        properties.forEach((k, v) -> System.out.println(k + ":" + v))
+        Properties properties = System.getProperties();
+        properties.forEach((k, v) -> System.out.println(k + ":" + v));
     }
 
     private static void loadProperties() throws Exception {
