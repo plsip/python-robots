@@ -32,6 +32,5 @@ public class TodoistTest {
         System.setProperty("output", "{\"title\":\"Inbox: Todoist\"}");
 
         browser.close();
-        System.out.println("additional log");
     }
 }
