@@ -33,7 +33,7 @@ public class TodoistTest {
 //        assertTrue((title.contentEquals("Inbox: Todoist")));
         assertTrue(true);
 
-        System.setProperty("output", "{\"title\":\"Inbox: Todoist\"}");
+        System.setProperty("output", inputParameters);
 
         browser.close();
     }
