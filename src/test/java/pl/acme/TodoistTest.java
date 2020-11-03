@@ -9,8 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoistTest {
-    private static inputParameters = System.getProperty("inputParameters");
-    private static secretParamters = System.getProperty("secretParamters");
+    private static String inputParameters = System.getProperty("inputParameters");
+    private static String secretParamters = System.getProperty("secretParamters");
 
     @Test
     public void verifyPageTitle() {
