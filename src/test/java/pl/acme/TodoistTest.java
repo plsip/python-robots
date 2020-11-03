@@ -9,6 +9,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoistTest {
+    private static inputParameters = System.getProperty("inputParameters");
+    private static secretParamters = System.getProperty("secretParamters");
+
     @Test
     public void verifyPageTitle() {
         ChromeOptions options = new ChromeOptions();
@@ -24,7 +27,8 @@ public class TodoistTest {
         browser.get(System.getProperty("inputParameters.testTargetURL", "http://mir-todoist-test-app.s3-website-us-east-1.amazonaws.com/"));
 
         String title = browser.getTitle();
-        System.out.println(title);
+        System.out.println(inputParameters);
+        System.out.println(secretParamters);
 
 //        assertTrue((title.contentEquals("Inbox: Todoist")));
         assertTrue(true);
