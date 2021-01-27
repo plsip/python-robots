@@ -10,7 +10,7 @@ def handler(event):
         {'out1': 'val1'},
         {'out2': 'val2'}
     ]
-    logger.info("Returning response: {}".format(output))
+    logger.info("response: {}".format(output))
 
 if __name__ == '__main__':
     handler({'inputParameters': [], 'secretParameters': []})
