@@ -11,7 +11,6 @@ def handler(event):
         {'out2': 'val2'}
     ]
     logger.info("Returning response: {}".format(output))
-    return output
 
 if __name__ == '__main__':
     handler({'inputParameters': [], 'secretParameters': []})
