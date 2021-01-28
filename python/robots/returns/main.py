@@ -1,4 +1,5 @@
 import logging
+import time
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -10,6 +11,9 @@ def handler(event):
         {'out1': 'val1'},
         {'out2': 'val2'}
     ]
+
+    time.sleep(1)
+
     logger.info("response: {}".format(output))
 
 if __name__ == '__main__':
