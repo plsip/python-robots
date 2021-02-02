@@ -15,6 +15,7 @@ def handler(event):
     time.sleep(1)
 
     logger.info("response: {}".format(output))
+    return output
 
 if __name__ == '__main__':
     handler({'inputParameters': [], 'secretParameters': []})
