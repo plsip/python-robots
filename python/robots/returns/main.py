@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 def handler(event):
-    logger.info("Received event: {}".format(event))
+    logger.info("Received event +1: {}".format(event))
     output = [
         {'out1': 'val1'},
         {'out2': 'val2'}
